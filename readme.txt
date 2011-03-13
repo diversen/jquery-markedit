@@ -11,3 +11,22 @@ implements customization, a public api, configurability, and internationalizatio
 Please see the wiki for installation, configuration, and documentation:
 
 http://wiki.github.com/tstone/jquery-markedit
+
+----
+
+Note forked from github.com/tstone/jquery-markedit
+
+This is a fork. It has been modified in order to be easily load with the coscms
+all you need from your module is to 
+
+    <?php
+        include_template_inc('jquery-markedit');
+        jquery_markedit_load_assets();
+    ?>
+
+then all elements with the id = "markdown" should be loaded,
+if template has loaded jquery and jquery-ui. 
+
+e.g.
+
+    <textarea id = "markdown">Some text</textarea>
