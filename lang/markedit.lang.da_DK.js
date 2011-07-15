@@ -9,64 +9,75 @@
 
 MarkEditLanguage = function() {
 
-    return {
+return {
 
-        'defaultButtons': {
-            'bold': {
-                'tip': 'Bold'
+            'defaultButtons': {
+                'bold': {
+                    'tip': 'Fed'
+                },
+                'italic': {
+                    'tip': 'Italic'
+                },
+                'link': {
+                    'tip': 'Indsæt Hyperlink'
+                },
+                'image': {
+                    'tip': 'Indsæt Billede'
+                },
+                'code': {
+                    'tip': 'Kode prøve'
+                },
+                'quote': {
+                    'tip': 'Citat'
+                },
+                'numberlist': {
+                    'tip': 'Nummer List'
+                },
+                'bulletlist': {
+                    'tip': 'Bullet List'
+                },
+                'line': {
+                    'tip': 'Indsæt streg'
+                },
+                'heading': {
+                    'tip': 'Overskrift'
+                },
+                'undo': {
+                    'tip': 'Undo'
+                },
+                'redo': {
+                    'tip': 'Redo'
+                },
+                'edit': {
+                    'text': 'Compose',
+                    'tip': 'View in Edit Mode'
+                },
+                'preview': {
+                    'text': 'Preview',
+                    'tip': 'View in Preview Mode'
+                }
             },
-            'italic': {
-                'tip': 'Italic'
+
+            'dialog': {
+                'insertLink': {
+                    'title': 'Indsæt Link',
+                    'helpText': 'Indsæt URL som skaber link.',
+                    'insertButton': 'Indsæt',
+                    'cancelButton': 'Fortryd'
+                },
+                'insertImage': {
+                    'title':'Indsæt billede',
+                    'helpText': 'Indtast URL til billede.',
+                    'insertButton': 'Indsæt',
+                    'cancelButton': 'Fortryd'
+                }
             },
-            'link': {
-                'tip': 'Insert Link'
-            },
-            'image': {
-                'tip': 'Insert Image'
-            },
-            'code': {
-                'tip': 'Code Sample'
-            },
-            'quote': {
-                'tip': 'Blockquote'
-            },
-            'numberlist': {
-                'tip': 'Numbered List'
-            },
-            'bulletlist': {
-                'tip': 'Bullet List'
-            },
-            'line': {
-                'tip': 'Horizontal Line'
-            },
-            'heading': {
-                'tip': 'Heading'
-            },
-            'edit': {
-                'text': 'Compose',
-                'tip': 'View in Edit Mode'
-            },
-            'preview': {
-                'text': 'Preview',
-                'tip': 'View in Preview Mode'
+
+            'errors' : {
+                'markeditNotTextarea':'MarkEdit tag must be a <textarea>',
+                'cannotLocateTextarea':'<textarea> tag could not be located in order to fetch the markeditGetState.'
             }
-        },
 
-        'dialog': {
-            'insertLink': {
-                'title': 'Insert Link',
-                'helpText': 'Enter the URL to be inserted.',
-                'insertButton': 'Insert',
-                'cancelButton': 'Cancel'
-            },
-            'insertImage': {
-                'title':'Insert Image',
-                'helpText': 'Enter the URL of the image to be inserted.',
-                'insertButton': 'Insert',
-                'cancelButton': 'Cancel'
-            }
-        }
+        };
 
-    };
-
-}();
+    }();
