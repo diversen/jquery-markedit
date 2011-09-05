@@ -2,7 +2,10 @@
 
 function jquery_markedit_load_assets ($editor = null){
     static $loaded = null;
-
+    
+    template::init('jquery-markedit');
+    //template::loadIniSettings('jquery-markedit');
+    
     if (!isset($editor)) {
         $editor = 'markedit-inline.js';
     }
