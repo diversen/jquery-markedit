@@ -4,13 +4,14 @@ function jquery_markedit_load_assets ($editor = null){
     static $loaded = null;
     
     template::init('jquery-markedit');
-    //template::loadIniSettings('jquery-markedit');
     
+    $editor = template::getIniSetting('jquery_markedit_editor');
     if (!isset($editor)) {
         $editor = 'markedit-inline.js';
     }
     if (!$loaded) {
-        template::setCss('/templates/jquery-markedit/assets/markedit.css');    
+        $editor_css = template::getIniSetting('jquery_markedit_css');
+        template::setCss("/templates/jquery-markedit/assets/$editor_css");    
         template::setCss('/templates/jquery-markedit/jquery.markedit.css');
         template::setJs('/templates/jquery-markedit/jquery.markedit.js');
 
