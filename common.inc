@@ -19,8 +19,7 @@ function jquery_markedit_load_assets ($editor = null){
         if (file_exists(_COS_PATH . "/htdocs/templates/jquery-markedit/lang/markedit.lang.$lang.js")) {
             template::setJs("/templates/jquery-markedit/lang/markedit.lang.$lang.js");
         }
-
-        
+       
         template::setJs( "/templates/jquery-markedit/assets/$editor");
         template::setJs('/templates/jquery-markedit/showdown.js');
         
