@@ -11,6 +11,7 @@ function jquery_markedit_load_assets ($editor = null){
     }
     if (!$loaded) {
         $editor_css = config::getModuleIni('jquery_markedit_css');
+        template::setJs('/js/jquery.url.js');
         if (isset($editor_css)) {
             template::setCss("/templates/jquery-markedit/assets/$editor_css"); 
         }
