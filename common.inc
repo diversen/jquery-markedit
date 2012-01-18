@@ -1,12 +1,24 @@
 <?php
 
-function jquery_markedit_load_assets ($editor = null){
+function jquery_markedit_load_assets ($options = array()){
     static $loaded = null;
     
     template::init('jquery-markedit');
+    if (isset($options['js'])) {
+        
+        $js = json_encode($options['js']);
+        $js = "var markedit_helper = $js;";
+        
+        template::setStringJs($js);
+        
+        
+        
+        //print_r($js);
+    }
+    
     
     $editor = config::getModuleIni('jquery_markedit_editor');
-    if (!isset($editor)) {
+    if (!$editor) {
         $editor = 'markedit-inline.js';
     }
     if (!$loaded) {

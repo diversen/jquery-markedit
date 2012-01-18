@@ -12,13 +12,13 @@
             });
             
 
-            
+            //alert(dump(markedit_helper));
             
             function flickrGalleryClick() {
                 // Create dialog to show user
                 //var thisurl = document.URL;
-                var url = $.url(location.url);
-                alert(url.segment(1)); // returns 'folder'
+                //var url = $.url(location.url);
+                //alert(url.segment(1)); // returns 'folder'
                 //url.segment(-2); // returns 'example'
 
                 
@@ -67,7 +67,10 @@
 
             
             function searchFlickrPhotos(query, resultCallback, completedCallback) {
-                $.getJSON('http://gaya/image/rpc?reference=blog&parent_id=12', function(data, textStatus){                    
+                reference_url = '/image/rpc?reference=' + markedit_helper.reference + '&parent_id=' + markedit_helper.parent_id;
+                
+                //alert(reference_url);
+                $.getJSON(reference_url, function(data, textStatus){                    
                     //alert(dump(data));
                     $.each(data.images, function(i, item){
                         
