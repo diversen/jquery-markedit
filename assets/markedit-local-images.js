@@ -6,7 +6,7 @@
                 'toolbar' : {
                     'layout' : 'bold italic | link quote code flickr-gallery | numberlist bulletlist heading line',
                     'buttons' : [
-                        { 'id':'flickr-gallery', 'tip':'Indsæt billede', 'css':'image', 'click': flickrGalleryClick }
+                        { 'id':'flickr-gallery', 'tip':'Indsæt billede', 'css':'image', 'click': imageUploadClick }
                     ]
                 }
             });
@@ -14,7 +14,7 @@
 
             //alert(dump(markedit_helper));
             
-            function flickrGalleryClick() {
+            function imageUploadClick() {
                 // Create dialog to show user
                 //var thisurl = document.URL;
                 //var url = $.url(location.url);
@@ -37,7 +37,7 @@
                 $(win).dialog({
                     'autoshow': true,
                     'bgiframe': true,
-                    'title': 'Flickr Image Gallery',
+                    'title': 'Add Image',
                     'closeOnEscape': true,
                     'height': 500,
                     'width': 850
@@ -45,7 +45,7 @@
                 
                 //$(win).children().filter('button').click(function() {
                     $(results).html();
-                    searchFlickrPhotos($(searchBox).val(), function(i, item) {                        
+                    searchImages($(searchBox).val(), function(i, item) {                        
                         var a = $('<a></a>').attr('href', item.url_m).attr('title', item.title);
                         var img = $('<img />').attr('src', item.url_s);
                         a.append(img);
@@ -66,7 +66,8 @@
             }
 
             
-            function searchFlickrPhotos(query, resultCallback, completedCallback) {
+            function searchImages(query, resultCallback, completedCallback) {
+                // markedit edit helper is set from PHP
                 reference_url = '/image/rpc?reference=' + markedit_helper.reference + '&parent_id=' + markedit_helper.parent_id;
                 
                 //alert(reference_url);

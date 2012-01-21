@@ -1,5 +1,9 @@
 <?php
 
+/**
+ * @param array $options
+ *              array('js' => 'string with javascript to be used in editor');
+ */
 function jquery_markedit_load_assets ($options = array()){
     static $loaded = null;
     
@@ -10,12 +14,7 @@ function jquery_markedit_load_assets ($options = array()){
         $js = "var markedit_helper = $js;";
         
         template::setStringJs($js);
-        
-        
-        
-        //print_r($js);
     }
-    
     
     $editor = config::getModuleIni('jquery_markedit_editor');
     if (!$editor) {
