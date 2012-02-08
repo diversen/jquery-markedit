@@ -15,19 +15,6 @@
             //alert(dump(markedit_helper));
             
             function imageUploadClick() {
-                // Create dialog to show user
-                //var thisurl = document.URL;
-                //var url = $.url(location.url);
-                //alert(url.segment(1)); // returns 'folder'
-                //url.segment(-2); // returns 'example'
-
-                
-                
-                
-                //alert(dump(url));
-                //var bla = ; // returns 'folder'
-                //alert(bla);
-                
                 var win = $('<div class="gallery"></div>');
                 var searchBox = $('<input type="text" value="tree"></input>');
                 var results = $('<div class="results"></div>');
@@ -37,7 +24,7 @@
                 $(win).dialog({
                     'autoshow': true,
                     'bgiframe': true,
-                    'title': 'Add Image',
+                    'title': MarkEditLanguage.dialog.insertImage.title,
                     'closeOnEscape': true,
                     'height': 500,
                     'width': 850
