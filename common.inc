@@ -5,24 +5,32 @@
  *              array('js' => 'string with javascript to be used in editor');
  */
 function jquery_markedit_load_assets ($options = array()){
+    // flag to check if editor has been loaded
     static $loaded = null;
     
     template::init('jquery-markedit');
-    if (isset($options['js'])) {
-        
+    
+    // if some variables are set - we use these. 
+    if (isset($options['js'])) {    
         $js = json_encode($options['js']);
         $js = "var markedit_helper = $js;";
-        
         template::setStringJs($js);
     }
     
-    $editor = config::getModuleIni('jquery_markedit_editor');
+    // check which editor to load. See assets
+    if (isset($options['editor'])) {
+        $editor = $options['editor'];
+    } else {
+        $editor = config::getModuleIni('jquery_markedit_editor');
+    }
+    
     if (!$editor) {
         $editor = 'markedit-inline.js';
     }
+    
+    // only load one editor
     if (!$loaded) {
         $editor_css = config::getModuleIni('jquery_markedit_css');
-        //template::setJs('/js/jquery.url.js');
         if (isset($editor_css)) {
             template::setCss("/templates/jquery-markedit/assets/$editor_css"); 
         }
@@ -30,6 +38,7 @@ function jquery_markedit_load_assets ($options = array()){
         template::setCss('/templates/jquery-markedit/jquery.markedit.css');
         template::setJs('/templates/jquery-markedit/jquery.markedit.js');
 
+        // load lang
         $lang = config::getMainIni('language');
         if (file_exists(_COS_PATH . "/htdocs/templates/jquery-markedit/lang/markedit.lang.$lang.js")) {
             template::setJs("/templates/jquery-markedit/lang/markedit.lang.$lang.js");
