@@ -1,4 +1,4 @@
 $(function(){
-        $('#markdown').markedit({
+        $('.markdown').markedit({
     });
 });
