@@ -30,6 +30,7 @@ function jquery_markedit_load_assets ($options = array()){
     
     // only load one editor
     if (!$loaded) {
+        
         $editor_css = config::getModuleIni('jquery_markedit_css');
         if (isset($editor_css)) {
             template::setCss("/templates/jquery-markedit/assets/$editor_css"); 
@@ -46,7 +47,7 @@ function jquery_markedit_load_assets ($options = array()){
        
         template::setJs( "/templates/jquery-markedit/assets/$editor");
         template::setJs('/templates/jquery-markedit/showdown.js');
-        
+        template::setJs('/js/jquery.textarea.js');
         $loaded = 1;
     }
 }
