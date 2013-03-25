@@ -31,17 +31,20 @@ function jquery_markedit_load_assets ($options = array()){
     // only load one editor
     if (!$loaded) {
         
+        $scheme = config::getSchemeWithServerName();
         $editor_css = config::getModuleIni('jquery_markedit_css');
         if (isset($editor_css)) {
-            template::setCss("/templates/jquery-markedit/assets/$editor_css"); 
+            template::setCss("/templates/jquery-markedit/assets/$editor_css", null, array ('no_cache'   => 1, ));
+            
         }
            
-        template::setCss('/templates/jquery-markedit/jquery.markedit.css');
+        
+        template::setCss('/templates/jquery-markedit/jquery.markedit.css',  null, array ('no_cache'   => 1, ));
         template::setJs('/templates/jquery-markedit/jquery.markedit.js');
 
         // load lang
         $lang = config::getMainIni('language');
-        if (file_exists(_COS_PATH . "/htdocs/templates/jquery-markedit/lang/markedit.lang.$lang.js")) {
+        if (file_exists(_COS_HTDOCS . "/templates/jquery-markedit/lang/markedit.lang.$lang.js")) {
             template::setJs("/templates/jquery-markedit/lang/markedit.lang.$lang.js");
         }
        
