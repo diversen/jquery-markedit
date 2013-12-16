@@ -31,7 +31,6 @@ function jquery_markedit_load_assets ($options = array()){
     // only load one editor
     if (!$loaded) {
         
-        $scheme = config::getSchemeWithServerName();
         $editor_css = config::getModuleIni('jquery_markedit_css');
         if (isset($editor_css)) {
             template::setCss("/templates/jquery-markedit/assets/$editor_css", null, array ('no_cache'   => 1, ));

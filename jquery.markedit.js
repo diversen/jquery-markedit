@@ -24,6 +24,9 @@
                 'image': {
                     'tip': 'Insert Image'
                 },
+                'uploaded_images': {
+                    'tip': 'Insert uploaded image'
+                },
                 'code': {
                     'tip': 'Code Sample'
                 },
@@ -365,6 +368,8 @@
         // functions
         'addHistoryButtons': true,
         'toolbar': $(this).markeditToolbar.defaults,
+        
+        'inlineHTML': false,
 
         // events
         'preload': function(){},
@@ -568,11 +573,11 @@
             if (selUrl.length > 0) { defaultValue = selUrl; }
 
             var parent_tag = this;
-            MarkEdit.basicPrompt(config, defaultValue, function(promptValue) {  // Ok Click:
+            MarkEdit.basicPrompt(config, defaultValue, function(promptValue) { // Ok Click:
                 // IE will loose the selection state unless we re-apply it
                 $(parent_tag).markeditSetState(state);
                 $(parent_tag).markeditSetLinkOrImage(image, promptValue, text, overwriteSelection);
-            }, function(){  // Cancel Click:
+            }, function(){ // Cancel Click:
                 // IE will loose the selection state unless we re-apply it
                 $(parent_tag).markeditSetState(state);
             });
@@ -612,6 +617,111 @@
 
         return this;
     };
+
+
+    
+        //
+    //  $.markeditSetLinkOrImage
+    //
+    $.fn.markeditSetLinkOrImageInline = function(image, url, text, overwriteSelection) {
+
+        var state = $(this).markeditGetState();
+
+
+        // Prep arguments
+        if (typeof(image) === 'undefined') { image = false; }
+
+        // Make sure selection is clean and get selected Url
+        // This also adds state.selectedUrl and state.selectedUrlIndex to the state
+        state = MarkEdit.cleanSelection(state, MarkEdit.RegexLinkStart, MarkEdit.RegexLinkEnd);
+
+        // Get the selected URL
+        var afterMatch = MarkEdit.RegexLinkEnd.exec(state.afterSelect);
+        var urlIndex = -1;
+        var selUrl = '';
+        if (afterMatch) {
+            urlIndex = Number(afterMatch[2]) - 1;
+            selUrl = state.links[urlIndex];
+        }
+
+        // If no URL open up the dialog and initialize callback
+        if (typeof(url) === 'undefined') {
+
+            var defaultValue = 'http://';
+            var config = null;
+
+            if (image) { config = MarkEditLanguage.dialog.insertImage; }
+            else { config = MarkEditLanguage.dialog.insertLink; }
+            
+            
+            if (selUrl.length > 0) { defaultValue = selUrl; }
+
+            var parent_tag = this;
+            MarkEdit.basicPrompt(config, defaultValue, function(promptValue) {  // Ok Click:
+                // IE will loose the selection state unless we re-apply it
+                $(parent_tag).markeditSetState(state);
+                $(parent_tag).markeditSetLinkOrImageInline(image, promptValue, text, overwriteSelection);
+            }, function(){  // Cancel Click:
+                // IE will loose the selection state unless we re-apply it
+                $(parent_tag).markeditSetState(state);
+            });
+
+        }
+        else {
+
+            // Set link text/image alt text if a selection is not already present
+            if (text) {
+                if (state.select.length === 0 || overwriteSelection) {
+                    state.select = text;
+                }
+            }
+            
+            if (!state.select && !image) {
+                state.select = 'link name';
+            }
+            
+            if (!state.select && image) {
+                state.select = 'alt text';
+            }
+            
+            
+
+            // If we already have a link/image and we're inserting another one
+            // just change the URL instead of doubling up the markdown syntax
+            if (urlIndex !== -1) {
+                state.links[urlIndex] = url;
+            }
+            
+            
+            else {
+                // Otherwise, insert a new link/image
+                /*
+                state.links[state.links.length] = url;
+
+                if (image) {
+                    state.select = '![' + state.select;
+                }
+                else {
+                    state.select = '[' + state.select;
+                }*/
+                if (!image) {
+                    state.select = '[' + state.select;
+                    state.select+= ']';
+                    state.select+="(" + url + ")";
+                } else {
+                    state.select = '![' + state.select;
+                    state.select+= ']';
+                    state.select+="(" + url + ")";
+                }
+                //state.select += '][' + state.links.length + ']';
+            }
+            console.log(state);
+            $(this).markeditSetState(state);
+
+        }
+        return this;
+    };
+    
 
 
     //
@@ -1484,12 +1594,27 @@
                             'click': function() { $(textarea_tag).markeditSetLinkOrImage(false); }
                         };
 
+                    case 'link_inline':
+                        return {
+                            'id':'link',
+                            'tip': MarkEditLanguage.defaultButtons.link.tip,
+                            'click': function() { $(textarea_tag).markeditSetLinkOrImageInline(false); }
+                        };
                     case 'image':
                         return {
                             'id':'image',
                             'tip': MarkEditLanguage.defaultButtons.image.tip,
                             'click': function() { $(textarea_tag).markeditSetLinkOrImage(true); }
                         };
+                    
+                    case 'image_inline':
+                        return {
+                            'id':'image',
+                            'tip': MarkEditLanguage.defaultButtons.image.tip,
+                            'click': function() { $(textarea_tag).markeditSetLinkOrImageInline(true); }
+                        };
+                        
+                    
 
                     case 'code':
                         return {

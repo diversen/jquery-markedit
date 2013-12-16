@@ -24,6 +24,9 @@ return {
                 'image': {
                     'tip': 'Indsæt Billede'
                 },
+                'uploaded_images': {
+                    'tip': 'Indsæt uploaded billede'
+                },
                 'code': {
                     'tip': 'Kode prøve'
                 },

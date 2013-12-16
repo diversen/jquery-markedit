@@ -1,0 +1,42 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01//EN" "http://www.w3.org/TR/html4/strict.dtd">
+<html lang="en">
+<head>
+    <title>MarkEdit Basic Example</title>
+    <link rel="stylesheet" type="text/css" href="../jquery.markedit.css" />
+    <link rel="stylesheet" type="text/css" href="http://ajax.googleapis.com/ajax/libs/jqueryui/1.7.2/themes/redmond/jquery-ui.css" />
+    <style type="text/css">
+        textarea { min-height: 250px; }
+        .markedit { width: 75%; }
+        
+        .gallery { font-size: 0.75em; }
+        .gallery span { margin-right: 20px; }
+        .gallery button { margin-left: 10px; }
+        .gallery input { width: 50%; }
+        .gallery .results { overflow: auto; margin-top: 20px; }
+        .gallery .results a { margin: 15px; }
+    </style>
+
+    <script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.3.2/jquery.min.js"></script>
+    <script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jqueryui/1.7.2/jquery-ui.min.js"></script>
+    <script type="text/javascript" src="../showdown.js"></script>
+    <script type="text/javascript" src="../jquery.markedit.js"></script>
+
+    <script type="text/javascript">
+    
+        $(function(){
+            $('textarea').markedit({
+                'preview': 'below',
+                'toolbar' : {
+                    'layout' : 'bold italic | link_inline quote code image_inline | numberlist bulletlist heading line',
+
+                }
+            });
+        });
+    </script>
+</head>
+<body>
+    <textarea>
+Click the regular image button to insert an image.
+    </textarea>
+</body>
+</html>
