@@ -52,12 +52,12 @@ In the toolbar you just use `link_inline` instead of `link` and `image_inline` i
             });
         });
 
+There is an example in `jquery-markedit/examples/inline-image-links.html`
+
 ### Local uploaded images
 
 The tstone forks has a nice example with loading of images with flikr. 
 I have made an example where you load images from local database. 
-
-There is an example in `jquery-markedit/examples/inline-image-links.html`
 
 You can see the source in `jquery-markedit/assets/markedit-local-images.js`
 

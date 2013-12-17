@@ -8,7 +8,7 @@ $(function() {
         'toolbar': {
             'layout': 'bold italic | link_inline quote code uploaded_image | numberlist bulletlist heading line',
             'buttons': [
-                {'id': 'uploaded_image', 'tip': 'Insert uploaded image', 'css': 'image', 'click': imageUploadClick}
+                {'id': 'uploaded_image', 'tip': MarkEditLanguage.defaultButtons.image.tip, 'css': 'image', 'click': imageUploadClick}
             ]
         }
     });
