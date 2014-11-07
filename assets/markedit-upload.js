@@ -8,7 +8,7 @@
                 'toolbar' : {
                     'layout' : 'bold italic | link quote code markdown_images | numberlist bulletlist heading line',
                     'buttons' : [
-                        { 'id':'markdown_images', 'tip':'Indsæt billede', 'css':'image', 'click': imageUploadClick }
+                        { 'id':'markdown_images', 'tip':'image', 'css':'image', 'click': imageUploadClick }
                     ]
                 }
             });
@@ -26,7 +26,7 @@
             
             
             function imageUploadClick() {
-                            alert('test');
+                            //alert('test');
                 appendSearch();
                 $(win).append(results);
                 $(win).dialog({
