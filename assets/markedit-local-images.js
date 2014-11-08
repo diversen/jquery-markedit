@@ -4,7 +4,7 @@
 $(function () {
 
     $('.markdown').markedit({
-        'preview': 'below',
+        //'preview': 'below',
         'toolbar': {
             'layout': 'bold italic | link_inline quote code uploaded_image | numberlist bulletlist heading line',
             'buttons': [

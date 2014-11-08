@@ -999,7 +999,7 @@
 
         $(buttons).each(function(){
             $(this).addClass('ui-state-disabled');
-            $(this).attr('disabled', 'disabled');
+            //$(this).attr('disabled', 'disabled');
         });
 
     };
@@ -1018,7 +1018,7 @@
 
         $(buttons).each(function(){
             $(this).removeClass('ui-state-disabled');
-            $(this).attr('disabled', '');
+            //$(this).attr('disabled', '');
         });
 
     };
