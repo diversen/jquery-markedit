@@ -26,7 +26,14 @@ $(function () {
         reference = markedit_helper.reference;
         parent_id = markedit_helper.parent_id;
         upload_url = '/image/ajax?reference=' + reference + '&parent_id=' + parent_id;
-
+        //alert(upload_url);
+        //var form = $('<input type="file" multiple="multiple" id="html5_upload_field">');
+        //$(form).append('<div id="progress_report"><div id="progress_report_name">');
+        //$(form).append('</div><div id="progress_report_status" style="font-style: italic;"></div>');
+        //$(form).append('<div id="progress_report_bar_container" style="width: 90%; height: 5px;"><div id="progress_report_bar" style="background-color: blue; width: 0; height: 100%;"></div></div><div id="progress_report_final"></div></div>');
+        //$(win).append(form);
+        //var form = $('<input type="file" multiple="multiple" id="html5_upload_field" /><div id="progress_report"><div id="progress_report_name"></div><div id="progress_report_status" style="font-style: italic;"></div><div id="progress_report_bar_container" style="width: 90%; height: 5px;"><div id="progress_report_bar" style="background-color: blue; width: 0; height: 100%;"></div></div><div id="progress_report_final"></div></div>');
+        //$(win).append(form);
         $(win).dialog({
             'autoshow': true,
             'bgiframe': false,

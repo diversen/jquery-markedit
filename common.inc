@@ -9,6 +9,18 @@ function jquery_markedit_load_assets ($options = array()){
     static $loaded = null;
     
     template::init('jquery-markedit');
+    template_assets::setJs('/js/jquery.html5_upload.js');
+    
+    /*
+    $h = new html_upload();
+    $reference = 'content/article';
+    $parent_id = 323;
+    $url = "/image/ajax?reference=$reference&parent_id=$parent_id";
+
+    template_assets::setJs('/js/jquery.html5_upload.js');
+    $js = $h->getJs($url);
+    template_assets::setStringJs($js);
+    */
     
     // if some variables are set - we use these. 
     if (isset($options['js'])) {    
