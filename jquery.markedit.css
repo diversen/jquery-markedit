@@ -40,10 +40,10 @@
     width: 22px;
 }
 .markedit .light-bg button.icon {
-    background-image: url("images/wmd-buttons.png");
+    background-image: url("/templates/jquery-markedit/images/wmd-buttons.png");
 }
 .markedit .dark-bg button.icon {
-    background-image: url("images/wmd-buttons-dark.png");
+    background-image: url("/templates/jquery-markedit/images/wmd-buttons-dark.png");
 }
 .markedit-toolbar button.bold {
     background-position: 0 0;
