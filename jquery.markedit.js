@@ -395,7 +395,7 @@
 
         // Locate textarea
         var textarea = MarkEdit.getTextArea(this);
-        textarea.focus();
+        //textarea.focus();
 
         // Get IE selection (of course IE would take 5x the amount of code)
         var r;
@@ -1092,7 +1092,7 @@
                 var selEnd = selStart + state.select.length;
 
                 // Make active
-                $(textarea).focus();
+                //$(textarea).focus();
 
                 if (textarea.setSelectionRange) {
 
