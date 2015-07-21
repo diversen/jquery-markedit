@@ -9,7 +9,7 @@ function jquery_markedit_load_assets ($options = array()){
     static $loaded = null;
     
     template::init('jquery-markedit');
-    template_assets::setJs('/js/jquery.html5_upload.js');
+    assets::setJs('/js/jquery.html5_upload.js');
     
     /*
     $h = new html_upload();
