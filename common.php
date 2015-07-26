@@ -33,7 +33,7 @@ function jquery_markedit_load_assets ($options = array()){
     if (isset($options['editor'])) {
         $editor = $options['editor'];
     } else {
-        $editor = config::getModuleIni('jquery_markedit_editor');
+        $editor = conf::getModuleIni('jquery_markedit_editor');
     }
     
     if (!$editor) {
@@ -43,7 +43,7 @@ function jquery_markedit_load_assets ($options = array()){
     // only load one editor
     if (!$loaded) {
         
-        $editor_css = config::getModuleIni('jquery_markedit_css');
+        $editor_css = conf::getModuleIni('jquery_markedit_css');
         if (isset($editor_css)) {
             template::setCss("/templates/jquery-markedit/assets/$editor_css", null, array ('no_cache'   => 1, ));
             
@@ -54,7 +54,7 @@ function jquery_markedit_load_assets ($options = array()){
         template::setJs('/templates/jquery-markedit/jquery.markedit.js');
 
         // load lang
-        $lang = config::getMainIni('language');
+        $lang = conf::getMainIni('language');
         if (file_exists(_COS_HTDOCS . "/templates/jquery-markedit/lang/markedit.lang.$lang.js")) {
             template::setJs("/templates/jquery-markedit/lang/markedit.lang.$lang.js");
         }
