@@ -1,5 +1,8 @@
 <?php
 
+use diversen\template;
+use diversen\template\assets;
+use diversen\conf;
 /**
  * @param array $options
  *              array('js' => 'string with javascript to be used in editor');
@@ -55,7 +58,7 @@ function jquery_markedit_load_assets ($options = array()){
 
         // load lang
         $lang = conf::getMainIni('language');
-        if (file_exists(_COS_HTDOCS . "/templates/jquery-markedit/lang/markedit.lang.$lang.js")) {
+        if (file_exists(conf::pathHtdocs() . "/templates/jquery-markedit/lang/markedit.lang.$lang.js")) {
             template::setJs("/templates/jquery-markedit/lang/markedit.lang.$lang.js");
         }
        
