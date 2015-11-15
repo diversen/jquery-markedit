@@ -48,8 +48,7 @@ function jquery_markedit_load_assets ($options = array()){
         
         $editor_css = conf::getModuleIni('jquery_markedit_css');
         if (isset($editor_css)) {
-            template::setCss("/templates/jquery-markedit/assets/$editor_css", null, array ('no_cache'   => 1, ));
-            
+            template::setCss("/templates/jquery-markedit/assets/$editor_css", null, array ('no_cache'   => 1, )); 
         }
            
         
@@ -64,7 +63,7 @@ function jquery_markedit_load_assets ($options = array()){
        
         template::setJs( "/templates/jquery-markedit/assets/$editor");
         template::setJs('/templates/jquery-markedit/showdown.js');
-        template::setJs('/js/jquery.textarea.js');
+        template::setJs('/bower_components/Tabby/jquery.textarea.js');
         $loaded = 1;
     }
 }
