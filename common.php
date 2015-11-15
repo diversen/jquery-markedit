@@ -12,7 +12,7 @@ function jquery_markedit_load_assets ($options = array()){
     static $loaded = null;
     
     template::init('jquery-markedit');
-    assets::setJs('/bower_components/jquery-html5-upload/jquery.html5_upload.js ');
+    assets::setJs('/bower_components/jquery-html5-upload/jquery.html5_upload.js');
     
     /*
     $h = new html_upload();
