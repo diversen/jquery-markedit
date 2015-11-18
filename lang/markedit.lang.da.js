@@ -52,12 +52,12 @@ return {
                     'tip': 'Redo'
                 },
                 'edit': {
-                    'text': 'Compose',
-                    'tip': 'View in Edit Mode'
+                    'text': 'Rediger',
+                    'tip': 'Vis i edit mode'
                 },
                 'preview': {
-                    'text': 'Preview',
-                    'tip': 'View in Preview Mode'
+                    'text': 'Vis',
+                    'tip': 'Vis i preview mode'
                 }
             },
 
