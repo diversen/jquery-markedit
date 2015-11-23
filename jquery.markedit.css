@@ -5,6 +5,7 @@
 }
 .markedit textarea {
     width: 100%;
+    min-height: 400px;
 }
 .markedit-toolbar {
     clear: both;
@@ -93,4 +94,5 @@
 .markedit-preview {
     overflow: hidden;
     width: 100%;
+    min-height: 400px;
 }
