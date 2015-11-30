@@ -64,6 +64,7 @@ function jquery_markedit_load_assets ($options = array()){
         template::setJs( "/templates/jquery-markedit/assets/$editor");
         template::setJs('/templates/jquery-markedit/showdown.js');
         template::setJs('/bower_components/Tabby/jquery.textarea.js');
+        template::setJs( "/templates/jquery-markedit/js/tabby.js");
         $loaded = 1;
     }
 }
