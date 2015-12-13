@@ -11,6 +11,15 @@ function jquery_markedit_load_assets ($options = array()){
     // flag to check if editor has been loaded
     static $loaded = null;
     
+    
+    if (isset($options['js'])) {    
+        $js = json_encode($options['js']);
+        $js = "var markedit_helper = $js;";
+        template::setStringJs($js);
+        // print_r($options);
+    }
+    
+    
     template::init('jquery-markedit');
     
     // check which editor to load. See assets
