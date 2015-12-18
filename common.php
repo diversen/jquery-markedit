@@ -15,7 +15,7 @@ function jquery_markedit_load_assets ($options = array()){
     if (isset($options['js'])) {    
         $js = json_encode($options['js']);
         $js = "var markedit_helper = $js;";
-        template::setStringJs($js);
+        assets::setStringJs($js);
         // print_r($options);
     }
     
@@ -38,23 +38,23 @@ function jquery_markedit_load_assets ($options = array()){
         
         $editor_css = conf::getModuleIni('jquery_markedit_css');
         if (isset($editor_css)) {
-            template::setCss("/templates/jquery-markedit/assets/$editor_css", null, array ('no_cache'   => 1, )); 
+            assets::setCss("/templates/jquery-markedit/assets/$editor_css", null, array ('no_cache'   => 1, )); 
         }
            
         
-        template::setCss('/templates/jquery-markedit/jquery.markedit.css',  null, array ('no_cache'   => 1, ));
-        template::setJs('/templates/jquery-markedit/jquery.markedit.js');
+        assets::setCss('/templates/jquery-markedit/jquery.markedit.css',  null, array ('no_cache'   => 1, ));
+        assets::setJs('/templates/jquery-markedit/jquery.markedit.js');
 
         // load lang
         $lang = conf::getMainIni('language');
         if (file_exists(conf::pathHtdocs() . "/templates/jquery-markedit/lang/markedit.lang.$lang.js")) {
-            template::setJs("/templates/jquery-markedit/lang/markedit.lang.$lang.js");
+            assets::setJs("/templates/jquery-markedit/lang/markedit.lang.$lang.js");
         }
        
-        template::setJs( "/templates/jquery-markedit/assets/$editor");
-        template::setJs('/templates/jquery-markedit/showdown.js');
-        template::setJs('/bower_components/Tabby/jquery.textarea.js');
-        template::setJs( "/templates/jquery-markedit/js/tabby.js");
+        assets::setJs( "/templates/jquery-markedit/assets/$editor");
+        assets::setJs('/templates/jquery-markedit/showdown.js');
+        assets::setJs('/bower_components/Tabby/jquery.textarea.js');
+        assets::setJs( "/templates/jquery-markedit/js/tabby.js");
         $loaded = 1;
     }
 }
